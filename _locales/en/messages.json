@@ -1,0 +1,190 @@
+﻿{
+  "extName": {
+    "message": "VAA",
+    "description": "Extension name in manifest."
+  },
+  "description": {
+    "message": "Vocabulary-memorizing Anywhere Anytime",
+    "description": "Extension description in manifest."
+  },
+  "default_title": {
+    "message": "Word List",
+    "description": "Extension browser action tooltip text in manifest."
+  },
+  
+  "fetchwords_displayMsg": {
+    "message": "searching for words need reviewing...",
+    "description": "Display Msg when fetching user's words."
+  },
+  "fetchwords_error_displayMsg": {
+    "message": "Failed to fetch words. Please try again.",
+    "description": "Display Msg when fetching user's words."
+  },
+  "initvocabulary_displayMsg": {
+    "message": "Init your vocabulary...",
+    "description": "Display Msg when init user's vocabulary."
+  },
+  "creatvocabulary_displayMsg": {
+    "message": "Vocabulary not exist, creating...",
+    "description": "Display Msg when creating user's vocabulary."
+  },
+  "vocabularycreated_displayMsg": {
+    "message": "Vocabulary created",
+    "description": "Display Msg when vocabulary created."
+  },
+  "worddeleted_displayMsg": {
+    "message": "Word deleted!",
+    "description": "Display Msg when user's word deleted."
+  },
+  "wordlowerlevel_displayMsg": {
+    "message": "Status updated!",
+    "description": "Display Msg when user's word deleted."
+  },
+
+  "revokeOAuthKey": {
+    "message": "Revoke your OAuth token",
+    "description": "text of Revoke your OAuth token button on option page"
+  },
+  "UndefinedRevokeOAuthKey": {
+    "message": "OAuth token",
+    "description": "text of Revoke your OAuth token button on option page"
+  },
+  "TrelloRevokeOAuthKey": {
+    "message": "Revoke your OAuth token",
+    "description": "text of Revoke your OAuth token button on option page"
+  },
+  "refreshRateKey": {
+    "message": "Refresh rate(seconds): ",
+    "description": "Refresh rate key on option page"
+  },
+  "vocabularyNameKey": {
+    "message": "Vocabulary Title: ",
+    "description": "vocabulary title key on option page"
+  },
+  "mouseModifierKey": {
+    "message": "Mouse lookup modifier: ",
+    "description": "mouse lookup modifier key on option page"
+  },
+  "captureDictServerKey": {
+    "message": "Dictionary server: ",
+    "description": "capture dictionary server key on option page"
+  },
+  "quickSearchKey": {
+    "message": "Shortcut lookup modifier:",
+    "description": "Quick search modifier"
+  },
+  "targetLanguageKey": {
+    "message": "Target language: ",
+    "description": "target language key on option page"
+  },
+  "applyButtonKey": {
+    "message": "Apply",
+    "description": "apply button key on option page"
+  },
+  "closeButtonKey": {
+    "message": "Close",
+    "description": "apply button key on option page"
+  },
+  "showWordMeaning": {
+    "message": "meaning",
+    "description": "show the word meaning on the bubble"
+  },
+  "showWordExample": {
+    "message": "example",
+    "description": "show the word example on the bubble"
+  },   
+  "showSentenceMeaning": {
+    "message": "Sentence Translation",
+    "description": "show the sentence meaning on the bubble"
+  },
+  "showOriginalText": {
+    "message": "Original Text",
+    "description": "show the Original Text on the bubble"
+  },
+  "showTranslationResults": {
+    "message": "Translation Results",
+    "description": "show the Translation Results on the bubble"
+  },
+  "refresh": {
+    "message": "Refresh",
+    "description": "Refresh the popup words"
+  },
+  "myVocabulary": {
+    "message": "My Vocabulary",
+    "description": "My Vocabulary"
+  },
+  "RSS": {
+    "message": "RSS",
+    "description": "RSS"
+  },
+  "option": {
+    "message": "Option",
+    "description": "Option"
+  },
+  "help": {
+    "message": "Help",
+    "description": "Help"
+  },
+  "showAllWordsMeaning": {
+    "message": "Show All Words Meaning",
+    "description": "Show all words meaning in popup"
+  },
+  "remembered": {
+    "message": "Rememered",
+    "description": "Rememered the word"
+  },
+  "showWordMeaning": {
+    "message": "Word Meaning",
+    "description": "Show word meaning"
+  },
+  "showPopupWordMeaning": {
+    "message": "Show this word meaning",
+    "description": "Show word meaning in popup"
+  },
+  "lookUpButtonValue": {
+    "message": "LookUp",
+    "description": "Look up button value"
+  },
+  "wait_moment": {
+    "message": "Wait for a moment",
+    "description": "Wait for a moment"
+  },
+  "no_newwords": {
+    "message": "You knows every word? Impossible! Reading something to find your words out.",
+    "description": "You knows every word? Impossible! Reading something to find your words out."
+  },
+  "pic_mode": {
+    "message": "Picture mode",
+    "description": "Picture mode"
+  },
+   "list_mode": {
+    "message": "List mode",
+    "description": "List mode"
+  },
+  "init_title": {
+    "message": "please select store words service",
+    "description": "please select store words service"
+  },
+   "authorizationing": {
+    "message": "You'll be redirected to Trello authorization page in a moment...",
+    "description": "You'll be redirected to Trello authorization page in a moment..."
+  },
+  "authorizationSuccess": {
+    "message": "This page will be automatically closed in few seconds.",
+    "description": "This page will be automatically closed in few seconds."
+  },
+   "nowordremember": {
+    "message": "No words now,",
+    "description": "no words need to remembered"
+  },
+  "greatjob": {
+    "message": "Great Job!!!",
+    "description": "Great Job!!!"
+  },
+  "showmeaning": {
+    "message": "show word meaning",
+    "description": "showmeaning"
+  }
+   
+}
+

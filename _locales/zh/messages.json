@@ -1,0 +1,181 @@
+﻿{
+  "extName": {
+    "message": "词道",
+    "description": "Extension name in manifest."
+  },
+  "description": {
+    "message": "外语学习好帮手——随时随地记单词",
+    "description": "Extension description in manifest."
+  },
+  "default_title": {
+    "message": "生词本",
+    "description": "Extension browser action tooltip text in manifest."
+  },
+  
+  "fetchwords_displayMsg": {
+    "message": "正在寻找您目前需要复习的生词...",
+    "description": "Display Msg when fetching user's words."
+  },
+  "fetchwords_error_displayMsg": {
+    "message": "生词下载失败，请重试！",
+    "description": "Display Msg when fetching user's words."
+  },
+  "initvocabulary_displayMsg": {
+    "message": "初始化生词本...",
+    "description": "Display Msg when init user's vocabulary."
+  },
+  "creatvocabulary_displayMsg": {
+    "message": "生词本不存在，创建中...",
+    "description": "Display Msg when creating user's vocabulary."
+  },
+  "vocabularycreated_displayMsg": {
+    "message": "生词本创建成功！",
+    "description": "Display Msg when vocabulary created."
+  },
+  "worddeleted_displayMsg": {
+    "message": "已删除！",
+    "description": "Display Msg when user's word deleted."
+  },
+  "wordlowerlevel_displayMsg": {
+    "message": "状态已更新！",
+    "description": "Display Msg when update user's word level."
+  },
+
+  "revokeOAuthKey": {
+    "message": "解除Google文档授权",
+    "description": "text of Revoke your OAuth token button on option page"
+  },
+   "UndefinedRevokeOAuthKey": {
+    "message": "授权",
+    "description": "text of Revoke your OAuth token button on option page"
+  },
+   "TrelloRevokeOAuthKey": {
+    "message": "解除授权",
+    "description": "text of Revoke your OAuth token button on option page"
+  },
+  "refreshRateKey": {
+    "message": "刷新间隔（秒）：",
+    "description": "Refresh rate key on option page"
+  },
+  "vocabularyNameKey": {
+    "message": "生词本名称：",
+    "description": "vocabulary title key on option page"
+  },
+  "mouseModifierKey": {
+    "message": "鼠标取词修饰键：",
+    "description": "mouse lookup modifier key on option page"
+  },
+  "captureDictServerKey": {
+    "message": "字典服务器：",
+    "description": "capture dictionary server key on option page"
+  },
+  "quickSearchKey": {
+    "message": "快捷查询修饰键：",
+    "description": "Quick search modifier"
+  },
+  "targetLanguageKey": {
+    "message": "目标语言：",
+    "description": "target language key on option page"
+  },
+  "applyButtonKey": {
+    "message": "确认",
+    "description": "apply button key on option page"
+  },
+  "closeButtonKey": {
+    "message": "关闭",
+    "description": "close button key on option page"
+  },
+  "showSentenceMeaning": {
+    "message": "整句翻译",
+    "description": "show the sentence meaning on the bubble"
+  },
+  "showOriginalText": {
+    "message": "原文",
+    "description": "show the Original Text on the bubble"
+  },
+  "showTranslationResults": {
+    "message": "译文",
+    "description": "show the Translation Results on the bubble"
+  },
+  "refresh": {
+    "message": "刷新",
+    "description": "Refresh the popup words"
+  },
+  "help": {
+    "message": "帮助",
+    "description": "Help"
+  },
+  "myVocabulary": {
+    "message": "我的单词",
+    "description": "My Vocabulary"
+  },
+  "RSS": {
+    "message": "RSS",
+    "description": "RSS"
+  },
+  "option": {
+    "message": "设置",
+    "description": "Option"
+  },
+  "showAllWordsMeaning": {
+    "message": "显示所有单词意思",
+    "description": "Show all words meaning in popup"
+  },
+  "remembered": {
+    "message": "记住啦",
+    "description": "Remembered the word"
+  },
+  "showWordMeaning": {
+    "message": "单词解释",
+    "description": "Show word meaning"
+  },
+  "showPopupWordMeaning": {
+    "message": "显示该单词意思",
+    "description": "Show word meaning in popup"
+  },
+  "lookUpButtonValue": {
+    "message": "查询",
+    "description": "Look up button value"
+  },
+  "wait_moment": {
+    "message": "请稍等...",
+    "description": "Wait for a moment"
+  },
+  "no_newwords": {
+    "message": "竟然没有生词！我不信，快去阅读寻找您的生词吧！",
+    "description": "竟然没有生词！我不信，快去阅读寻找您的生词吧！"
+  },
+  "pic_mode": {
+    "message": "图片模式",
+    "description": "Picture mode"
+  },
+   "list_mode": {
+    "message": "列表模式",
+    "description": "List mode"
+  },
+  "init_title": {
+    "message": "请选择存词服务",
+    "description": "please select store words service"
+  },
+   "authorizationing": {
+    "message": "正在转入Trello认证页面，请稍候。。。",
+    "description": "You'll be redirected to Trello authorization page in a moment..."
+  },
+  "authorizationSuccess": {
+    "message": "本页面将在几秒钟内自动关闭。",
+    "description": "This page will be automatically closed in few seconds."
+  },
+   "nowordremember": {
+    "message": "没有需要复习的单词了，",
+    "description": "no words need to remembered"
+  },
+  "greatjob": {
+    "message": "太棒了!!!",
+    "description": "Great Job!!!"
+  },
+  "showmeaning": {
+    "message": "再学一遍",
+    "description": "showmeaning"
+  }       
+}
+

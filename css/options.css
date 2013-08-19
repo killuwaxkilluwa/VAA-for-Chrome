@@ -1,0 +1,52 @@
+#container {
+        margin: auto;
+        width: 600px;
+        margin-top: 70px;
+        padding-top: 0px;
+		border:1px solid #a1a1a1;
+		box-shadow: 10px 10px 5px #888888;
+		border-radius:25px
+      }
+h1 {
+        margin: auto;
+		margin-top: 10px;
+        color: #F8F8FF;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#7BBC48), to(#7BBC48));
+        border-radius: 10px 10px 10px 10px;
+        padding: 5px 10px;
+        text-shadow: rgba(0, 0, 0, 0.3) 0px -1px 1px;
+        font-size: 150%;
+        text-align: center;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 5px;
+		width:300px;
+      }
+span {
+        float: left;
+		width: 20em;
+		padding-right: 30px;
+		text-align: right;
+}
+input, select {
+		margin-left: 0px;
+} 
+button {
+		width:60px;
+		
+}
+#revoke{
+		width:180px;
+
+}
+#buttonset{
+		margin-left: 180px;
+}
+#container {
+       
+        width: 600px;
+        margin-top: 70px;
+       
+		
+      }
+#maincontainer{
+	margin:0 auto;
+}

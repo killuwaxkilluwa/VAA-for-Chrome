@@ -1,0 +1,192 @@
+﻿{
+  "extName": {
+    "message": "詞道",
+    "description": "Extension name in manifest."
+  },
+  "description": {
+    "message": "外語學習好幫手---隨時隨地記單詞",
+    "description": "Extension description in manifest."
+  },
+  "default_title": {
+    "message": "單詞本",
+    "description": "Extension browser action tooltip text in manifest."
+  },
+  
+  "fetchwords_displayMsg": {
+    "message": "正在尋找您目前需要複習的生詞...",
+    "description": "Display Msg when fetching user's words."
+  },
+  "fetchwords_error_displayMsg": {
+    "message": "單詞下載失敗，請重試！",
+    "description": "Display Msg when fetching user's words."
+  },
+  "initvocabulary_displayMsg": {
+    "message": "初始化單詞本...",
+    "description": "Display Msg when init user's vocabulary."
+  },
+  "creatvocabulary_displayMsg": {
+    "message": "單詞本不存在，創建中...",
+    "description": "Display Msg when creating user's vocabulary."
+  },
+  "vocabularycreated_displayMsg": {
+    "message": "單詞本創建成功！",
+    "description": "Display Msg when vocabulary created."
+  },
+  "worddeleted_displayMsg": {
+    "message": "已刪除！",
+    "description": "Display Msg when user's word deleted."
+  },
+  "wordlowerlevel_displayMsg": {
+    "message": "單詞狀態已更新！",
+    "description": "Display Msg when user's word deleted."
+  },
+  "revokeOAuthKey": {
+    "message": "解除 Google 文件授權",
+    "description": "text of Revoke your OAuth token button on option page"
+  },
+   "UndefinedRevokeOAuthKey": {
+    "message": "授權",
+    "description": "text of Revoke your OAuth token button on option page"
+  },
+   "TrelloRevokeOAuthKey": {
+    "message": "解除授權",
+    "description": "text of Revoke your OAuth token button on option page"
+  },
+  "refreshRateKey": {
+    "message": "更新間隔（秒）：",
+    "description": "Refresh rate key on option page"
+  },
+  "vocabularyNameKey": {
+    "message": "單詞本名稱：",
+    "description": "vocabulary title key on option page"
+  },
+  "mouseModifierKey": {
+    "message": "滑鼠取詞修飾鍵：",
+    "description": "mouse lookup modifier key on option page"
+  },
+  "captureDictServerKey": {
+    "message": "字典伺服器：",
+    "description": "capture dictionary server key on option page"
+  },
+   "quickSearchKey": {
+    "message": "快捷查詢修飾鍵：",
+    "description": "Quick search modifier"
+  },
+  "viewDictServerKey": {
+    "message": "查詞伺服器：",
+    "description": "view dictionary server key on option page"
+  },
+  "targetLanguageKey": {
+    "message": "目標語言：",
+    "description": "target language key on option page"
+  },
+  "applyButtonKey": {
+    "message": "確認",
+    "description": "apply button key on option page"
+  },
+  "closeButtonKey": {
+    "message": "關閉",
+    "description": "close button key on option page"
+  },
+  "showWordMeaning": {
+    "message": "單詞解釋",
+    "description": "show the word meaning on the bubble"
+  },
+  "showWordExample": {
+    "message": "例子",
+    "description": "show the word example on the bubble"
+  },
+   "showSentenceMeaning": {
+    "message": "整句翻譯",
+    "description": "show the sentence meaning on the bubble"
+  },
+  "showOriginalText": {
+    "message": "原文",
+    "description": "show the Original Text on the bubble"
+  },
+  "showTranslationResults": {
+    "message": "譯文",
+    "description": "show the Translation Results on the bubble"
+  },
+  "refresh": {
+    "message": "刷新",
+    "description": "Refresh the popup words"
+  },
+  "myVocabulary": {
+    "message": "我的單詞",
+    "description": "My Vocabulary"
+  },
+  "RSS": {
+    "message": "RSS",
+    "description": "RSS"
+  },
+  "option": {
+    "message": "設置",
+    "description": "Option"
+  },
+  "help": {
+    "message": "幫助",
+    "description": "Help"
+  },
+  "showAllWordsMeaning": {
+    "message": "顯示所有單詞意思",
+    "description": "Show all words meaning in popup"
+  },
+  "remembered": {
+    "message": "記住啦",
+    "description": "Remembered the word"
+  },
+  "showWordMeaning": {
+    "message": "單詞解釋",
+    "description": "Show word meaning"
+  },
+  "showPopupWordMeaning": {
+    "message": "顯示該單詞意思",
+    "description": "Show word meaning in popup"
+  },
+  "lookUpButtonValue": {
+    "message": "查詢",
+    "description": "Look up button value"
+  },
+  "wait_moment": {
+    "message": "請稍等...",
+    "description": "Wait for a moment"
+  },
+  "no_newwords": {
+    "message": "竟然沒有生詞！我不信，快去閱讀尋找您的生詞吧！",
+    "description": "竟然沒有生詞！我不信，快去閱讀尋找您的生詞吧！"
+  },
+  "pic_mode": {
+    "message": "圖片模式",
+    "description": "Picture mode"
+  },
+   "list_mode": {
+    "message": "列表模式",
+    "description": "List mode"
+  },
+  "init_title": {
+    "message": "請選擇存詞服務",
+    "description": "please select store words service"
+  },
+   "authorizationing": {
+    "message": "正在轉入Trello認證頁面，請稍候。。。",
+    "description": "You'll be redirected to Trello authorization page in a moment..."
+  },
+  "authorizationSuccess": {
+    "message": "本頁面將在幾秒鐘內自動關閉。",
+    "description": "This page will be automatically closed in few seconds."
+  },
+   "nowordremember": {
+    "message": "沒有需要復習的單詞了，",
+    "description": "no words need to remembered"
+  },
+  "greatjob": {
+    "message": "太棒了!!!",
+    "description": "Great Job!!!"
+  },
+  "showmeaning": {
+    "message": "在學一遍",
+    "description": "showmeaning"
+  }       
+}
+
