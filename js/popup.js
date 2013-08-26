@@ -182,6 +182,12 @@ function changeBoardClosedStatus(board_id, status, type) {
 		} else if (type == "changeStatus") {
 			getListCard(board.id);
 		}
+	},function(error){
+		console.log("error:" + error);
+		if(type == "changeStatus"){
+			getListCard(board_id);
+		}
+		
 	});
 }
 
