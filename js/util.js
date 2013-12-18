@@ -83,7 +83,25 @@ util.loadingDataPic = function(){
 		'background-position' : 'center',
 		'width' : '100px',
 		'margin-right' : '115px',
-		'margin-top' : '20px'
+		'margin-top' : '20px',
+		'margin-bottom' : '20px'
 	}).show();
 	$('#butter1').text("");
+}
+
+
+util.array_diff = function(array1, array2) {
+	var o = {}; //转成hash可以减少运算量，数据量越大，优势越明显。
+	for (var i = 0, len = array2.length; i < len; i++) {
+		o[array2[i]] = true;
+	}
+
+	var result = [];
+	for (i = 0, len = array1.length; i < len; i++) {
+		var v = array1[i];
+		if (o[v])
+			continue;
+		result.push(v);
+	}
+	return result;
 }

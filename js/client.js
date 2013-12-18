@@ -63,7 +63,6 @@
       deauthorize: function() {
         token = null;
         writeStorage("token", token);
-		localStorage["service"] = "Trello";
       },
       authorize: function(userOpts) {
         var key, persistToken, regexToken, scope, value, _ref;
@@ -74,15 +73,15 @@
           name: "Unknown Application",
           scope: {
             read: true,
-            write: true,
-            account: true
+            write: false,
+            account: false
           },
           expiration: "30days"
         }, userOpts);
         regexToken = /[&#]?token=([0-9a-f]{64})/;
         persistToken = function() {
           if (opts.persist && (token != null)) {
-			localStorage["service"] = "Trello";
+		    
             return writeStorage("token", token);
           }
         };
@@ -210,8 +209,6 @@
       }
       isReady("authorized", Trello.authorized());
     };
-	
-	
     localStorage = window.localStorage;
     if (localStorage != null) {
       storagePrefix = "trello_";

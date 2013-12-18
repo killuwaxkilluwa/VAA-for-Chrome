@@ -1,15 +1,20 @@
 jQuery(function($) {
-
+    
 	var closeCurrentTab = function() {
         chrome.tabs.getCurrent(function (tab) {
-            chrome.tabs.remove( tab.id );
+            
+			chrome.tabs.remove( tab.id );
         });
-	}, onAuthorize = function() {
+	}
+	var onAuthorize = function() {
+		
 		$("#select_service").addClass("authorized");
 		$("#auth").hide();
-		setTimeout(closeCurrentTab, 2000);
+		setTimeout(closeCurrentTab, 5000);
 		
 	};
+	
+	
 						  
 	Trello.authorize({
 		interactive: false,
@@ -20,6 +25,7 @@ jQuery(function($) {
 		Trello.authorize({
 			expiration: "never",
 			name: "VAA for Chrome",
+			scope: { write: true, read: true },
 			success: onAuthorize
 		});
 	}

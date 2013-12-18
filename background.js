@@ -12,14 +12,15 @@
       var pollIntervalMin = 1000 * refreshRate;
       var requests = [];
 
-      //var wordListName = localStorage.spreadsheetName || 'MyWords';
-	  var wordListName = localStorage.spreadsheetName || 'MyWordjiahe1';
+      var wordListName = 'MyWords';
+	  //var wordListName = localStorage.spreadsheetName || 'MyWordjiahe1';
       var wordslistFeed = localStorage.vocabularyListFeed;
       var vocabularyLink = localStorage.vocabularyLink;
       var wordslistAtom = localStorage.wordslistAtom;
 
 	  var SPEAKER_ICON_URL = chrome.extension.getURL('img/speaker.png');
-	  //var SPEAKER_CONTROL_ICON_URL = chrome.extension.getURL('img/speaker_volume_control.png');
+	
+	 //var SPEAKER_CONTROL_ICON_URL = chrome.extension.getURL('img/speaker_volume_control.png');
 
       /* if (localStorage["service"] == "Google SpreadSheet") {
 
@@ -33,7 +34,8 @@
       'app_name': 'VAA'
       });
       }*/
-
+	  var updateFlag;
+	  var levelName = ["new", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"];
       var bingAppId = 'E31EE8C8CFD0CD0D618059BFC90E17AB4464CE44';
      // var flickrAppKey = '329f9136f1d1d0cdfdd3e476b2824fe2';
 
@@ -406,7 +408,7 @@
 	  */
 	  function translateEnglishWordByVaa(txt) {
       	$.ajax({
-      		url : "http://mili.cfapps.io/words/" + txt,
+      		url : " http://mili.herokuapp.com/words/" + txt,
       		dataType : "json",
       		success : function (result) {
 				if (result) {
@@ -466,7 +468,7 @@
       					mp3url_en : pron_en,
 						mp3url_us : pron_us
       				});
-					isSaveWord(txt, des);
+					isSaveWord(txt, des, 0, "noUpdate");
 					
 				} else {
 					var buffer = [];
@@ -487,28 +489,6 @@
       		}
       	});
       }
-	  
-	  
-/*	  function translateEnglishWordByWordreference(txt, lg){
-		var url = "http://api.wordreference.com/0.8/af990/json/en"+ lg +"/"+ txt;
-		$.ajax({
-      		url : url,
-      		dataType : "json",
-      		success : function (result) {
-      			//alert(result.term0.PrincipalTranslations[0].FirstTranslation.term);
-				var def = [];
-				if(result.term0.PrincipalTranslations){
-					for(var i in result.term0.PrincipalTranslations){
-						def.push(i.OriginalTerm.POS);
-						def.push(i.FirstTranslation.term);
-					}
-				}
-				alert(def.join(','));
-				
-      		}
-      	});
-	  }
-	 */ 
 	  
 	  
 	  function consturctShow(txt, showpron, def, example, pic) {
@@ -536,61 +516,115 @@
       }
 	  
 	  //GET /1/search?query=KEYWORD&idBoards=BOARDID&modelTypes=cards&card_fields=name,closed,due,desc,idList
-	  function isSaveWord(word, result) {
-		$.get("https://api.trello.com/1/search/", {
-      		query : word,
-      		idBoards : localStorage["board_id"],
-      		modelTypes : "cards",
-			card_fields : "name,closed,due,desc,idList",
-      		key : "d8b28623f3171a9dbc870738cd5f6926",
-      		token : localStorage["trello_token"]
-      	}, function (data) {
-			if(data.cards.length == 0){
-				addCard(localStorage["new"], word, result);
-			}else{
-				if(data.cards[0].closed){
-					reOpenCard(data.cards[0].id);
-				}else{
-					if(!data.cards[0].due){
-						addDue(data.cards[0].id);
-					}
-				}
-			}
-		});
-	  	
-		
-		
-		
-		/*
-		
-		
-		if (localStorage['temp_wordlist'].length > 0) {
-	  		var tempWordList = JSON.parse(localStorage['temp_wordlist']);
-	  		
-	  		for (var i = 0; i < tempWordList.length; i++) {
-	  			if (tempWordList[i] == word) {
-					return true;
+	  function isSaveWord(word, result, level, type) {
+	  	$.get("https://api.trello.com/1/search/", {
+	  		query : word,
+	  		idBoards : localStorage["board_id"],
+	  		modelTypes : "cards",
+	  		card_fields : "name,closed,due,desc,idList",
+	  		key : "d8b28623f3171a9dbc870738cd5f6926",
+	  		token : localStorage["trello_token"]
+	  	}, function (data) {
+	  		if (data.cards.length == 0) {
+	  			var levelnum = levelName[level];
+	  			addCard(localStorage[levelnum], word, result);
+	  		} else {
+	  			if (type == "noUpdate") {
+	  				if (data.cards[0].closed) {
+	  					reOpenCard(data.cards[0].id);
+	  				} else {
+	  					if (!data.cards[0].due) {
+	  						addDue(data.cards[0].id);
+	  					}
+	  				}
 	  			}
 	  		}
-	  		tempWordList[tempWordList.length] = word;
-	  		//alert(tempWordList);
-	  		localStorage['temp_wordlist'] = JSON.stringify(tempWordList);
-	  		addWord(word, result);
-	  		return false;
-	  	} else {
-	  		var newTempWordList = [];
-	  		newTempWordList.push(word);
-	  		localStorage['temp_wordlist'] = JSON.stringify(newTempWordList);
-	  		addWord(word, result);
-	  	}
-		*/
+	  	});
+
 	  }
 	  
-     setInterval(function () {
+/*	function updateCards(word, level) {
+		$.ajax({
+			url : "http://mili.cfapps.io/words/" + word,
+			dataType : "json",
+			success : function (result) {
+				var des = JSON.stringify(result);
+				isSaveWord(word, des, level, "update");
+			}
+		});
+	}
+	 
+	
+	function getUpdateCard(list_id){
+		$.get("https://api.trello.com/1/lists/" + list_id + "/cards",{
+			key : "d8b28623f3171a9dbc870738cd5f6926",
+	 		token : localStorage["trello_token"]
+		},function(cards){
+			if (cards.length == 0) {
+				updateFlag = false;
+			}else{
+				$.each(cards, function (ix, card) {
+					var d = card.desc.split("#");
+					var time_id = d[d.length - 1].split("@");
+					var degree = time_id[1];
+					console.log("updateword:" + card.name);
+					updateCards(card.name, degree);
+				});
+				console.log("updatefinished");
+				updateFlag = false;
+			}
+		
+		});
+	
+	}
+	
+	function getUpdateList(board_id){
+		$.get("https://api.trello.com/1/boards/" + board_id + "/lists",{
+			key : "d8b28623f3171a9dbc870738cd5f6926",
+	 		token : localStorage["trello_token"]
+		},function(lists){
+			for (var i = 0; i < lists.length; i++) {
+			if (lists[i].name == "vaa word list") {
+				//localStorage["list_id"] = lists[i].id;
+				getUpdateCard(lists[i].id);
+				break;
+			}
+		}
+		
+		});
+	}
+	
+	
+	
+	function update(board_id){
+		getUpdateList(board_id)
+	
+	}
+	
+	 setTimeout(function () {
+	 	console.log("updatestart");
+		if (localStorage["service"] == "Trello") {
+	 		$.get("https://api.trello.com/1/members/me/boards", {
+	 			key : "d8b28623f3171a9dbc870738cd5f6926",
+	 			token : localStorage["trello_token"]
+	 		}, function (boards) {
+	 			for (var i = 0; i < boards.length; i++) {
+	 				if (boards[i].name == "VAA" && !boards[i].closed) {
+	 					updateFlag = true;
+	 					update(boards[i].id);
+						break;
+	 				}
+	 			}
+	 		});
+		 }
+	 	},30000);*/
+     
+	 setInterval(function () {
       	if (localStorage["service"] == "Trello") {
 			//alert("setinterval");
-      		$.get("https://api.trello.com/1/lists/" + localStorage["list_id"] + "/cards", {
-      			key : "d8b28623f3171a9dbc870738cd5f6926",
+      		$.get("https://api.trello.com/1/boards/" + localStorage["board_id"] + "/cards", {
+      			filter : "open",
+				key : "d8b28623f3171a9dbc870738cd5f6926",
       			token : localStorage["trello_token"]
       		}, function (cards) {
       			if (cards.length == 0) {
@@ -600,14 +634,11 @@
       			} else {
       				var word_num = 0;
       				$.each(cards, function (ix, card) {
-      					var d = card.desc.split("#");
-      					var time_id = d[d.length - 1].split("@");
-      					var degree = time_id[1];
-      					var duedate = new Date(Date.parse(time_id[0]));
-      					var now = new Date();
-      					if (degree == 0 || (duedate < now && degree < 8)) {
-      						word_num++;
-      					}
+      					var due = new Date(card.due);
+						var now = new Date();
+						if (now >= due) {
+							word_num++;
+						}
       				});
       				console.log("wordnum" + word_num);
       				setIcon({
@@ -617,3 +648,5 @@
       		});
       	}
       }, pollIntervalMin);
+	  
+	  
