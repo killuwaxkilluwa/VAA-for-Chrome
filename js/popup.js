@@ -27,7 +27,7 @@
 		$("#3").attr("title", VAAOperation.option);
 		$("#1").click(function () {
 			util.loadingDataPic();
-			VAAOperation.isBoardExit();
+			VAAOperation.getListCard(localStorage["board_id"]);
 		});
 		//trello无rss
 		$("#2").css("display", "none");
