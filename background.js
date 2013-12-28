@@ -42,7 +42,7 @@
       function setIcon(opt_badgeObj) {
       	if (opt_badgeObj) {
       		var badgeOpts = {};
-      		if (opt_badgeObj && opt_badgeObj.text != undefined) {
+      		if (opt_badgeObj && opt_badgeObj.text != undefined && parseInt(opt_badgeObj.text)!= 0) {
       			badgeOpts['text'] = opt_badgeObj.text;
       		}
       		if (opt_badgeObj && opt_badgeObj.tabId) {
@@ -516,7 +516,7 @@
       }
 	  
 	  //GET /1/search?query=KEYWORD&idBoards=BOARDID&modelTypes=cards&card_fields=name,closed,due,desc,idList
-	  function isSaveWord(word, result, level, type) {
+	 /* function isSaveWord(word, result, level, type) {
 	  	$.get("https://api.trello.com/1/search/", {
 	  		query : word,
 	  		idBoards : localStorage["board_id"],
@@ -540,8 +540,36 @@
 	  			}
 	  		}
 	  	});
-
+	  }*/
+	  
+	  
+	  function isSaveWord(word, result, level, type) {
+		
+	  	if (localStorage['temp_wordlist'].length > 0) {
+	  		var tempWordList = JSON.parse(localStorage['temp_wordlist']);
+	  		//alert(tempWordList);
+	  		for (var i = 0; i < tempWordList.length; i++) {
+	  			if (tempWordList[i] == word) {
+	  				return true;
+	  			}
+	  		}
+	  		tempWordList[tempWordList.length] = word;
+	  		//alert(tempWordList);
+	  		localStorage['temp_wordlist'] = JSON.stringify(tempWordList);
+	  		//addWord(word, pron, definit, exampleString, mp3);
+	  		
+			var levelnum = levelName[level];
+	  		addCard(localStorage[levelnum], word, result);
+			
+			return false;
+	  	} else {
+	  		var newTempWordList = [];
+	  		newTempWordList.push(word);
+	  		localStorage['temp_wordlist'] = JSON.stringify(newTempWordList);
+	  		addCard(localStorage[levelnum], word, result);
+	  	}
 	  }
+	  
 	  
 /*	function updateCards(word, level) {
 		$.ajax({
@@ -620,33 +648,36 @@
 	 	},30000);*/
      
 	 setInterval(function () {
-      	if (localStorage["service"] == "Trello") {
-			//alert("setinterval");
-      		$.get("https://api.trello.com/1/boards/" + localStorage["board_id"] + "/cards", {
-      			filter : "open",
-				key : "d8b28623f3171a9dbc870738cd5f6926",
-      			token : localStorage["trello_token"]
-      		}, function (cards) {
-      			if (cards.length == 0) {
-      				setIcon({
-      					'text' : ''
-      				});
-      			} else {
-      				var word_num = 0;
-      				$.each(cards, function (ix, card) {
-      					var due = new Date(card.due);
-						var now = new Date();
-						if (now >= due) {
-							word_num++;
-						}
-      				});
-      				console.log("wordnum" + word_num);
-      				setIcon({
-      					'text' : word_num.toString()
-      				});
-      			}
-      		});
-      	}
+	 	if (localStorage["service"] == "Trello") {
+	 		//alert("setinterval");
+	 		$.get("https://api.trello.com/1/boards/" + localStorage["board_id"] + "/cards", {
+	 			filter : "open",
+	 			key : "d8b28623f3171a9dbc870738cd5f6926",
+	 			token : localStorage["trello_token"]
+	 		}, function (cards) {
+	 			if (cards.length == 0) {
+	 				setIcon({
+	 					'text' : ''
+	 				});
+	 			} else {
+	 				var word_num = 0;
+	 				$.each(cards, function (ix, card) {
+	 					if (card.desc !== "null") {
+	 						var due = new Date(card.due);
+	 						var now = new Date();
+	 						if (now >= due) {
+	 							word_num++;
+	 						}
+
+	 					}
+	 				});
+	 				console.log("wordnum" + word_num);
+	 				setIcon({
+	 					'text' : word_num.toString()
+	 				});
+	 			}
+	 		});
+	 	}
       }, pollIntervalMin);
 	  
 	  

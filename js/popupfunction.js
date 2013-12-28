@@ -39,6 +39,7 @@ var VAAOperation = {
 		//if (bgPage.updateFlag) {
 			//util.displayMsg("update.....");
 		//} else {
+			localStorage['temp_wordlist'] = "";
 			util.loadingDataPic(); //util.displayMsg(wait_moment);
 			$cardlist = $("<div>")
 					.addClass("container")
@@ -253,6 +254,7 @@ var VAAOperation = {
 		
 		util.loadingDataPic();
 		var word_num;
+		var tempWordList = [];
 		Trello.get("boards/" + localStorage["board_id"] + "/cards", {
 			filter : "open"
 		}, function (cards) {
@@ -270,8 +272,9 @@ var VAAOperation = {
 				$.each(cards, function (ix, card) {
 					//console.log(card.desc);
 					if (card.desc !== "null") {
-						console.log("card: " + card.name);
+						//console.log("card: " + card.name);
 						//tempWordList.push(card.name);
+						tempWordList.push(card.name);
 						var due = new Date(card.due);
 						var now = new Date();
 						
@@ -356,6 +359,7 @@ var VAAOperation = {
 				bgPage.setIcon({
 					'text' : word_num.toString()
 				});
+				localStorage['temp_wordlist']=JSON.stringify(tempWordList);
 				if (word_num == 0) {
 					var $noword = $("<div>")
 						.addClass("nowordcontainer")
