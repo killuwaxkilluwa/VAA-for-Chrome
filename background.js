@@ -42,7 +42,7 @@
       function setIcon(opt_badgeObj) {
       	if (opt_badgeObj) {
       		var badgeOpts = {};
-      		if (opt_badgeObj && opt_badgeObj.text != undefined && parseInt(opt_badgeObj.text)!= 0) {
+      		if (opt_badgeObj && opt_badgeObj.text != undefined) {
       			badgeOpts['text'] = opt_badgeObj.text;
       		}
       		if (opt_badgeObj && opt_badgeObj.tabId) {
@@ -544,7 +544,7 @@
 	  
 	  
 	  function isSaveWord(word, result, level, type) {
-		
+		var levelnum = levelName[level];
 	  	if (localStorage['temp_wordlist'].length > 0) {
 	  		var tempWordList = JSON.parse(localStorage['temp_wordlist']);
 	  		//alert(tempWordList);
@@ -558,7 +558,7 @@
 	  		localStorage['temp_wordlist'] = JSON.stringify(tempWordList);
 	  		//addWord(word, pron, definit, exampleString, mp3);
 	  		
-			var levelnum = levelName[level];
+			
 	  		addCard(localStorage[levelnum], word, result);
 			
 			return false;
@@ -671,9 +671,9 @@
 
 	 					}
 	 				});
-	 				console.log("wordnum" + word_num);
+	 				//console.log("wordnum" + word_num);
 	 				setIcon({
-	 					'text' : word_num.toString()
+	 					'text' : word_num == 0 ? "" : word_num.toString()
 	 				});
 	 			}
 	 		});

@@ -260,12 +260,12 @@ var VAAOperation = {
 		}, function (cards) {
 			$cardlist.html(" ");
 			if (cards.length == 0) {
+				$('#butter1').fadeOut(0);
 				util.displayMsg(VAAOperation.no_newwords);
 				bgPage.setIcon({
-					'text' : cards.length.toString()
+					'text' : cards.length == 0? "" : cards.length.toString()
 				});
-				$('#butter1').fadeOut(0);
-
+			
 			} else {
 				//util.loadingDataPic();
 				word_num = 0;
@@ -314,9 +314,11 @@ var VAAOperation = {
 								.click(function (event) {
 									$word.fadeOut(1000);
 									word_num = word_num - 1;
+									
 									bgPage.setIcon({
-										'text' : word_num.toString()
+										'text' : word_num == 0? "":word_num.toString()
 									});
+									
 									VAAOperation.remembereWord(card.idList, card.id);
 									//showNeedRememberWordsNum(word_num);
 
@@ -356,15 +358,17 @@ var VAAOperation = {
 					}
 				});
 				$('#butter1').fadeOut(0);
-				bgPage.setIcon({
-					'text' : word_num.toString()
-				});
 				localStorage['temp_wordlist']=JSON.stringify(tempWordList);
 				if (word_num == 0) {
 					var $noword = $("<div>")
 						.addClass("nowordcontainer")
 						.html('<div class="nowordtoremember">' + VAAOperation.nowordremember + '</div><div class="great">' + VAAOperation.greatjob + '</div>')
 						.appendTo($cardlist);
+				} else {
+					
+					bgPage.setIcon({
+						'text' : word_num.toString()
+					});
 				}
 			}
 		});
