@@ -408,7 +408,7 @@
 	  */
 	  function translateEnglishWordByVaa(txt) {
       	$.ajax({
-      		url : " http://mili.herokuapp.com/words/" + txt,
+      		url : " http://mili2.herokuapp.com/words/" + txt +".json",
       		dataType : "json",
       		success : function (result) {
 				if (result) {
